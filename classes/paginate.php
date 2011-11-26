@@ -234,7 +234,7 @@ abstract class Paginate
 	 */
 	public function count()
 	{
-		return $this->_count;
+		return (int) $this->_count;
 	}
 	
 	/**
@@ -245,7 +245,7 @@ abstract class Paginate
 	 */
 	public function count_total()
 	{
-		return $this->_count_total;
+		return (int) $this->_count_total;
 	}
 	
 	/**
