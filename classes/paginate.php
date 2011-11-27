@@ -43,11 +43,11 @@ abstract class Paginate
 		{
 			$driver = 'Database';
 		}
-		else if ($object instanceof Dispatch)
+		else if ($object instanceof Dispatch_Request)
 		{
 			$driver = 'Dispatch';
 		}
-		
+
 		$class = 'Paginate_' . $driver;
 
 		return new $class($object); 
