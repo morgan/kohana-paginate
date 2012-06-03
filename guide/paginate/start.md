@@ -1,10 +1,14 @@
 # Specifying a Driver
 
-A driver can be set within factory (example using ORM):
+A driver can be auto-detected within factory (example using ORM):
 
 	$user = ORM::factory('user');
 
 	$paginate = Paginate::factory($user);
+
+Optionally, the driver can be specified:
+
+	$paginate = Paginate::factory($user, 'ORM');
 
 # Configuration
 
@@ -16,7 +20,8 @@ A driver can be set within factory (example using ORM):
 		->columns(array('id', 'title', 'created'))
 		->search_columns(array('id', 'title'));
 		
-Note that `Paginate::search_columns` is only used for `Database` and `ORM`.
+Note that `Paginate::search_columns` is only used for `Database` and `ORM`. The Dispatch driver 
+can always be extended for applying custom actions on third-party REST services as needed.
 
 # Operations
 
@@ -42,7 +47,6 @@ Note that `Paginate::search_columns` is only used for `Database` and `ORM`.
 	// Generate a result
 	$paginate->execute();
 	
-	
 ## Result from Driver
 
 	echo debug::vars($paginate->result());
@@ -53,4 +57,5 @@ After executing Paginate, access to count and total count becomes available.
 	
 	$count = $paginate->count();
 	
-	$count_total = $paginate->count_total();	
+	$count_total = $paginate->count_total();
+	
