@@ -1,4 +1,4 @@
-# 0.1.0 - 12/01/2011
+# 0.1.0
 
 - Initial release of Paginate
 - Support for Kohana Database, Kohana ORM and Dispatch

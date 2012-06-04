@@ -8,7 +8,7 @@ return array
 			'enabled'		=> TRUE,
 			'name'			=> 'Paginate',
 			'description'	=> 'A paginate abstraction supporting Database, ORM and Dispatch.',
-			'copyright'		=> '&copy; 2011 Micheal Morgan',
+			'copyright'		=> '&copy; 2011-2012 Micheal Morgan',
 		)
 	)
 );
