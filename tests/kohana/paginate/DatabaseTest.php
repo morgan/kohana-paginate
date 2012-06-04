@@ -74,7 +74,7 @@ class Kohana_Paginate_DatabaseTest extends Kohana_PaginateTest
 	{
 		parent::tearDown();
 		
-		$this->_database->query(Database::DELETE, "DROP TABLE `$this->_table_name`");
+		$this->_drop_table();
 	}    
     
     /**
@@ -85,17 +85,30 @@ class Kohana_Paginate_DatabaseTest extends Kohana_PaginateTest
      */
     protected function _setup_table()
     {
-        if ( ! $this->_database->list_tables($this->_table_name))
+        if ($this->_database->list_tables($this->_table_name))
     	{
-	    	$create_table = "CREATE TABLE `$this->_table_name` (
-					`id` INT( 10 ) UNSIGNED NOT NULL PRIMARY KEY ,
-					`label` VARCHAR( 255 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
-				) ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci;";   		
-    		
-    		$this->_database->query(Database::INSERT, $create_table);
+	    	$this->_drop_table();
     	}  	
+    	
+    	$create_table = "CREATE TABLE `$this->_table_name` (
+				`id` INT( 10 ) UNSIGNED NOT NULL PRIMARY KEY ,
+				`label` VARCHAR( 255 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
+			) ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci;";   		
+    	
+    	$this->_database->query(Database::INSERT, $create_table);
     }   
 
+    /**
+     * Drop table
+     * 
+     * @access	protected
+     * @return	void
+     */
+    protected function _drop_table()
+    {
+    	$this->_database->query(Database::DELETE, "DROP TABLE `$this->_table_name`");
+    }
+    
     /**
      * Fill table
      * 
