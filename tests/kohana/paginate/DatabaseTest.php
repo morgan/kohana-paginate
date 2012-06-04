@@ -25,7 +25,7 @@ class Kohana_Paginate_DatabaseTest extends Kohana_PaginateTest
 	 * @access	protected
 	 * @var		mixed	NULL|string
 	 */
-	protected $_table_name;
+	protected $_table_name = 'paginate_test';
 	
 	/**
 	 * Factory
@@ -85,9 +85,6 @@ class Kohana_Paginate_DatabaseTest extends Kohana_PaginateTest
      */
     protected function _setup_table()
     {
-    	// Randomize table name
-    	$this->_table_name = 'paginate_test_' . time();
-    	
         if ( ! $this->_database->list_tables($this->_table_name))
     	{
 	    	$create_table = "CREATE TABLE `$this->_table_name` (

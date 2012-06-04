@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 /**
- * Paginate
+ * Paginate Test Model
  * 
  * @package		Paginate
  * @author		Micheal Morgan <micheal@morgan.ly>
@@ -10,14 +10,10 @@
 class Model_Paginate_Test extends ORM
 {
 	/**
-	 * Check if structure exists and if not, create it
+	 * Names not plural by default
 	 * 
-	 * @static
-	 * @access	public
-	 * @return	bool
+	 * @access	protected
+	 * @var		bool
 	 */
-	public static function structure()
-	{
-		var_dump(Database::instance()->list_tables('paginate_test'));exit;
-	}
+	protected $_table_names_plural = FALSE;
 }
