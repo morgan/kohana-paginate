@@ -117,8 +117,6 @@ abstract class Kohana_Paginate
 	public function __construct($object)
 	{
 		$this->_object = $object;
-		
-		$this->_setup();
 	}
 
 	/**

@@ -26,7 +26,7 @@ class Kohana_Paginate_Database extends Paginate
 	 */	
 	public function __construct($object)
 	{
-		$this->_object = $object;
+		parent::__construct($object);
 		
 		$this->_object_clone = clone $this->_object;
 	}	
