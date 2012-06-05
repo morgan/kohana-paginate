@@ -8,6 +8,18 @@
 class Controller_Paginate_Test extends REST_Controller 
 {
 	/**
+	 * Enforce CLI
+	 * 
+	 * @access	public
+	 * @return	void
+	 */
+	public function before()
+	{
+		if ( ! Kohana::$is_cli)
+			throw new Kohana_Exception('Must be running in CLI.');
+	}
+	
+	/**
 	 * GET test
 	 * 
 	 * @access	public

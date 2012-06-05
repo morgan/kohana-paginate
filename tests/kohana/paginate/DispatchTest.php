@@ -21,8 +21,8 @@ class Kohana_Paginate_DispatchTest extends Kohana_Paginate_DatabaseTest
 	{
 		$connection = Dispatch_Connection::factory(array
 		(
-			'url'		=> URL::site(),
-			'extension'	=> 'json'
+			'attempt_local'	=> TRUE,
+			'extension'		=> 'json'
 		));
 		
 		$dispatch = Dispatch::factory('paginate/test', $connection);

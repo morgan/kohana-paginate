@@ -18,6 +18,7 @@ Recommend starting out with Paginate documentation using the User Guide module o
 
 - User Guide
 - API Browser
+- Unit Tests
 
 ## Version 0.1.0
 
