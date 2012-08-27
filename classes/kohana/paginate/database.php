@@ -73,20 +73,24 @@ class Kohana_Paginate_Database extends Paginate
 			$query = '%' . mysql_real_escape_string($query) . '%';
 			
 			$this->_object->where_open();
+			$this->_object_clone->where_open();
 
 			foreach ($columns as $key => $column)
 			{
 				if ($key === 0)
 				{
 					$this->_object->where($column, 'like', $query);
+					$this->_object_clone->where($column, 'like', $query);
 				}
 				else
 				{
 					$this->_object->or_where($column, 'like', $query);
+					$this->_object_clone->or_where($column, 'like', $query);
 				}
 			}
 
 			$this->_object->where_close();
+			$this->_object_clone->where_close();
 		}		
 	}
 	
