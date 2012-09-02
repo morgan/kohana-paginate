@@ -19,6 +19,17 @@ class Kohana_Paginate_ORM extends Paginate_Database
 	{
 		return $this->_object_clone->count_all();
 	}
+
+	/**
+	 * Count search total
+	 * 
+	 * @access	protected
+	 * @return	int
+	 */
+	protected function _count_search_total()
+	{
+		return $this->_object_search_clone->count_all();
+	}	
 	
 	/**
 	 * Execute result on object

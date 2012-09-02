@@ -48,6 +48,8 @@ class Kohana_Paginate_DatabaseTest extends Kohana_PaginateTest
 	 */
 	public function setUp()
     {
+    	parent::setUp();
+
         if (class_exists('Database'))
         {
 			$this->_database = Database::instance();
@@ -60,8 +62,6 @@ class Kohana_Paginate_DatabaseTest extends Kohana_PaginateTest
         {
         	$this->markTestSkipped('Database module not loaded.');
         }
-        
-        parent::setUp();
     }
 
 	/**

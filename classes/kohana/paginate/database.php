@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 /**
- * DataTables Database driver
+ * Paginate Database driver
  * 
  * @package		Paginate
  * @author		Micheal Morgan <micheal@morgan.ly>
@@ -96,7 +96,7 @@ class Kohana_Paginate_Database extends Paginate
 
 			$this->_object->where_close();
 
-			$this->_object_search_clone = (clone) $this->_object;
+			$this->_object_search_clone = clone $this->_object;
 		}		
 	}
 	

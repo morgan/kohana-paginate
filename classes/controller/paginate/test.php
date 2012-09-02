@@ -2,8 +2,10 @@
 /**
  * Paginate Test resource
  *
- * @author		Micheal Morgan <micheal.morgan@standvertical.com>
- * @copyright	(c) 2011-2012 Stand Vertical Inc
+ * @package		Paginate
+ * @author		Micheal Morgan <micheal@morgan.ly>
+ * @copyright	(c) 2011-2012 Micheal Morgan
+ * @license		MIT
  */
 class Controller_Paginate_Test extends REST_Controller 
 {

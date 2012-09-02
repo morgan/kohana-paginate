@@ -74,6 +74,9 @@ abstract class Kohana_PaginateTest extends Unittest_TestCase
     	$this->assertEquals($this->_count_total, $paginate->count_total());
     	
     	// Test count
-    	$this->assertEquals(1, $paginate->count());    	
+    	$this->assertEquals(1, $paginate->count());   
+
+        // Test count
+        $this->assertEquals(1, $paginate->count_search_total());         	
     } 
 }

@@ -88,6 +88,14 @@ abstract class Kohana_Paginate
 	protected $_search_columns = array();
 	
 	/**
+	 * Search query
+	 * 
+	 * @access	protected
+	 * @var		mixed 	NULL|string
+	 */
+	protected $_search_query;	
+
+	/**
 	 * Count for request
 	 * 
 	 * @access	protected
@@ -226,16 +234,19 @@ abstract class Kohana_Paginate
 	}
 	
 	/**
-	 * Search query
+	 * Get or set search query
 	 * 
 	 * @access	public
-	 * @param	mixed
-	 * @return	$this
+	 * @param	mixed 	NULL|string
+	 * @return	mixed 	$this|string
 	 */
-	public function search($query)
+	public function search($query = NULL)
 	{
-		$this->_search($query);
-		
+		if ($query === NULL)
+			return $this->_search_query;
+
+		$this->_search_query = $query;
+
 		return $this;
 	}
 	
@@ -326,13 +337,18 @@ abstract class Kohana_Paginate
 	 */
 	public function execute()
 	{
+		if ($this->_search_query !== NULL)
+		{
+			$this->_search($this->_search_query);
+		}
+
 		$this->_result = $this->_execute();
 		
 		$this->_count = $this->_count();
 		
 		$this->_count_total = $this->_count_total();
-		
-		if ( ! empty($this->_search_columns))
+
+		if ($this->_search_query !== NULL)
 		{
 			$this->_count_search_total = $this->_count_search_total();
 		}

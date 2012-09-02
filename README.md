@@ -20,6 +20,6 @@ Recommend starting out with Paginate documentation using the User Guide module o
 - API Browser
 - Unit Tests
 
-## Version 0.1.0
+## Version 0.2
 
-This is release version 0.1.0 of [Paginate](https://github.com/michealmorgan/kohana-paginate).
+This is release version 0.2 of [Paginate](https://github.com/michealmorgan/kohana-paginate).

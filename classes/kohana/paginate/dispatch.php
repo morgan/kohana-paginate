@@ -71,6 +71,17 @@ class Kohana_Paginate_Dispatch extends Paginate
 	}	
 	
 	/**
+	 * Count search total
+	 * 
+	 * @access	protected
+	 * @return	int
+	 */
+	protected function _count_search_total()
+	{
+		return $this->_result['count_search_total'];
+	}	
+
+	/**
 	 * Execute result on object
 	 * 
 	 * @access	protected

@@ -39,7 +39,7 @@ class Kohana_Paginate_DispatchTest extends Kohana_Paginate_DatabaseTest
 	public function setUp()
     {
     	parent::setUp();
-    	
+
         if ( ! class_exists('Dispatch'))
         {
 			$this->markTestSkipped('Paginate Dispatch test requires Dispatch module.');

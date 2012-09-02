@@ -34,11 +34,11 @@ class Kohana_Paginate_ORMTest extends Kohana_Paginate_DatabaseTest
 	 */
 	public function setUp()
     {
+    	parent::setUp();
+    	
         if ( ! class_exists('ORM'))
         {
 			$this->markTestSkipped('ORM module not loaded.');
         }
-        
-        parent::setUp();
     }
 }
