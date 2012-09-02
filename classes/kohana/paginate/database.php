@@ -100,7 +100,6 @@ class Kohana_Paginate_Database extends Paginate
 
 			$this->_object->where_close();
 			$this->_object_search_clone->where_close();
-			
 		}		
 	}
 	
