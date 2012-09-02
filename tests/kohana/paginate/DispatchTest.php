@@ -48,6 +48,6 @@ class Kohana_Paginate_DispatchTest extends Kohana_Paginate_DatabaseTest
         if ( ! class_exists('REST_Collection'))
         {
         	$this->markTestSkipped('Paginate Dispatch test requires REST module.');
-        }
+        }        
     }
 }

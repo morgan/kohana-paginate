@@ -41,6 +41,10 @@ abstract class Kohana_Paginate
 			{
 				$driver = 'ORM';
 			}
+			else if ($object instanceof ORM_REST)
+			{
+				$driver = 'ORM_REST';
+			}
 			else if ($object instanceof Database_Query)
 			{
 				$driver = 'Database';

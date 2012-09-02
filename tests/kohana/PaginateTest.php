@@ -12,14 +12,6 @@
 abstract class Kohana_PaginateTest extends Unittest_TestCase
 {
 	/**
-	 * Paginate
-	 * 
-	 * @access	protected
-	 * @var		Paginate
-	 */
-	protected $_paginate;
-	
-	/**
 	 * Total count
 	 * 
 	 * @access	protected
@@ -34,20 +26,7 @@ abstract class Kohana_PaginateTest extends Unittest_TestCase
 	 * @return	Paginate
 	 */
 	abstract public function factory();
-	
-	/**
-	 * Check whether or not to skip test
-	 * 
-	 * @access	protected
-	 * @return	void
-	 */
-	public function setUp()
-    {
-    	parent::setUp();
 
-        $this->_paginate = $this->factory();
-    }	
-	
     /**
      * Test limit
      * 
@@ -60,15 +39,17 @@ abstract class Kohana_PaginateTest extends Unittest_TestCase
      */
     public function test_limit()
     {
-    	$this->_paginate
+    	$paginate = $this->factory();
+    	
+    	$paginate
     		->limit(0, 5)
     		->execute();
 
     	// Test total count
-    	$this->assertEquals($this->_count_total, $this->_paginate->count_total());
+    	$this->assertEquals($this->_count_total, $paginate->count_total());
     	
     	// Test count
-    	$this->assertEquals(5, $this->_paginate->count());    	
+    	$this->assertEquals(5, $paginate->count());    	
     }
 
     /**
@@ -83,14 +64,16 @@ abstract class Kohana_PaginateTest extends Unittest_TestCase
      */
     public function test_search()
     {
-    	$this->_paginate
+    	$paginate = $this->factory();
+    	
+    	$paginate
 			->search('label 5')
     		->execute();
 
     	// Test total count
-    	$this->assertEquals($this->_count_total, $this->_paginate->count_total());
+    	$this->assertEquals($this->_count_total, $paginate->count_total());
     	
     	// Test count
-    	$this->assertEquals(1, $this->_paginate->count());    	
+    	$this->assertEquals(1, $paginate->count());    	
     } 
 }
