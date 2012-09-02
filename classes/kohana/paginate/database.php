@@ -37,6 +37,7 @@ class Kohana_Paginate_Database extends Paginate
 		parent::__construct($object);
 		
 		$this->_object_clone = clone $this->_object;
+		$this->_object_search_clone = clone $this->_object;
 	}	
 	
 	/**
@@ -81,22 +82,25 @@ class Kohana_Paginate_Database extends Paginate
 			$query = '%' . mysql_real_escape_string($query) . '%';
 			
 			$this->_object->where_open();
+			$this->_object_search_clone->where_open();
 
 			foreach ($columns as $key => $column)
 			{
 				if ($key === 0)
 				{
 					$this->_object->where($column, 'like', $query);
+					$this->_object_search_clone->where($column, 'like', $query);
 				}
 				else
 				{
 					$this->_object->or_where($column, 'like', $query);
+					$this->_object_search_clone->or_where($column, 'like', $query);
 				}
 			}
 
 			$this->_object->where_close();
-
-			$this->_object_search_clone = clone $this->_object;
+			$this->_object_search_clone->where_close();
+			
 		}		
 	}
 	
@@ -133,9 +137,6 @@ class Kohana_Paginate_Database extends Paginate
 	 */
 	protected function _count_search_total()
 	{
-		if ($this->_object_search_clone === NULL)
-			throw new Kohana_Exception('Search not applicable to this pagination.');
-
 		return $this->_object_search_clone
 			->select(array('COUNT("*")', 'paginate_count'))
 			->execute()
