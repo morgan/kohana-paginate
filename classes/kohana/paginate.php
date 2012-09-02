@@ -100,6 +100,14 @@ abstract class Kohana_Paginate
 	protected $_count_total = 0;
 	
 	/**
+	 * Total search count
+	 * 
+	 * @access	protected
+	 * @var		int
+	 */
+	protected $_count_search_total = 0;
+
+	/**
 	 * Result
 	 * 
 	 * @access	protected
@@ -163,6 +171,14 @@ abstract class Kohana_Paginate
 	 */
 	abstract protected function _count_total();
 	
+	/**
+	 * Count search total
+	 * 
+	 * @access	protected
+	 * @return	int
+	 */
+	abstract protected function _count_search_total();
+
 	/**
 	 * Execute result on object
 	 * 
@@ -242,6 +258,17 @@ abstract class Kohana_Paginate
 	}
 	
 	/**
+	 * Get search count prior to pagination
+	 * 
+	 * @access	public
+	 * @return	int
+	 */
+	public function count_search_total()
+	{
+		return (int) $this->_count_search_total;
+	}
+
+	/**
 	 * Set or get columns
 	 * 
 	 * @access	public
@@ -301,6 +328,11 @@ abstract class Kohana_Paginate
 		
 		$this->_count_total = $this->_count_total();
 		
+		if ( ! empty($this->_search_columns))
+		{
+			$this->_count_search_total = $this->_count_search_total();
+		}
+
 		return $this;
 	}
 }

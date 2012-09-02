@@ -18,6 +18,14 @@ class Kohana_Paginate_Database extends Paginate
 	protected $_object_clone;
 
 	/**
+	 * Object clone
+	 * 
+	 * @access	protected
+	 * @var		mixed	NULL|ORM
+	 */
+	protected $_object_search_clone;
+
+	/**
 	 * Initialize
 	 * 
 	 * @access	public
@@ -87,6 +95,8 @@ class Kohana_Paginate_Database extends Paginate
 			}
 
 			$this->_object->where_close();
+
+			$this->_object_search_clone = (clone) $this->_object;
 		}		
 	}
 	
@@ -115,6 +125,23 @@ class Kohana_Paginate_Database extends Paginate
 			->get('paginate_count');
 	}	
 	
+	/**
+	 * Count search total
+	 * 
+	 * @access	protected
+	 * @return	int
+	 */
+	protected function _count_search_total()
+	{
+		if ($this->_object_search_clone === NULL)
+			throw new Kohana_Exception('Search not applicable to this pagination.');
+
+		return $this->_object_search_clone
+			->select(array('COUNT("*")', 'paginate_count'))
+			->execute()
+			->get('paginate_count');
+	}
+
 	/**
 	 * Execute result on object
 	 * 
