@@ -7,7 +7,7 @@ return array
 		(
 			'enabled'		=> TRUE,
 			'name'			=> 'Paginate',
-			'description'	=> 'A paginate abstraction supporting Database, ORM and Dispatch.',
+			'description'	=> 'A paginate abstraction supporting Database, ORM, ORM-REST and Dispatch.',
 			'copyright'		=> '&copy; 2011-2012 Micheal Morgan',
 		)
 	)

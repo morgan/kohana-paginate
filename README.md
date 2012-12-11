@@ -4,6 +4,7 @@ Paginate abstraction supporting:
 
 - [Database](https://github.com/kohana/database)
 - [ORM](https://github.com/kohana/orm)
+- [ORM-REST](https://github.com/morgan/kohana-orm-rest)
 - [Dispatch](https://github.com/morgan/kohana-dispatch)
 
 Be sure to check out wrappers for:
@@ -12,7 +13,7 @@ Be sure to check out wrappers for:
 
 ## Getting Started
 
-Recommend starting out with Paginate documentation using the User Guide module or available online at http://dev.morgan.ly/kohana/v3.2/guide/paginate/.
+Recommend starting out with Paginate documentation using the User Guide module or available online at http://dev.morgan.ly/kohana/v3.3/guide/paginate/.
 
 ## Learning & References
 
@@ -20,6 +21,6 @@ Recommend starting out with Paginate documentation using the User Guide module o
 - API Browser
 - Unit Tests
 
-## Version 0.2.0
+## Version 0.3.0
 
-This is release version 0.2.0 of [Paginate](https://github.com/morgan/kohana-paginate).
+This is release version 0.3.0 of [Paginate](https://github.com/morgan/kohana-paginate).

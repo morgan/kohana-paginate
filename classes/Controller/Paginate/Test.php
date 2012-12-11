@@ -17,7 +17,7 @@ class Controller_Paginate_Test extends REST_Controller
 	 */
 	public function before()
 	{
-		if ( ! Kohana::$is_cli)
+		if (PHP_SAPI != 'cli')
 			throw new Kohana_Exception('Must be running in CLI.');
 	}
 	
@@ -35,7 +35,7 @@ class Controller_Paginate_Test extends REST_Controller
 			->columns(array('id', 'label'));
 		
 		$collection = REST_Collection::factory($paginate)->execute();
-		
+
 		foreach ($collection->paginate()->result() as $row)
 		{
 			$collection->add_row(array
@@ -43,8 +43,8 @@ class Controller_Paginate_Test extends REST_Controller
 				'id'	=> $row['id'],
 				'label'	=> $row['label']
 			));
-		}		
+		}
 
 		$this->render($collection->render());
-	}	
+	}
 }
