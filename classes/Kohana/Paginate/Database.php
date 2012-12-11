@@ -123,7 +123,7 @@ class Kohana_Paginate_Database extends Paginate
 	protected function _count_total()
 	{
 		return $this->_object_clone
-			->select(array('COUNT("*")', 'paginate_count'))
+			->select(array(DB::expr('COUNT("*")'), 'paginate_count'))
 			->execute()
 			->get('paginate_count');
 	}	
@@ -137,7 +137,7 @@ class Kohana_Paginate_Database extends Paginate
 	protected function _count_search_total()
 	{
 		return $this->_object_search_clone
-			->select(array('COUNT("*")', 'paginate_count'))
+			->select(array(DB::expr('COUNT("*")'), 'paginate_count'))
 			->execute()
 			->get('paginate_count');
 	}
