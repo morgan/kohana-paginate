@@ -1,2 +1,3 @@
 ## [Paginate]()
- - [Getting Started](start)
+ - [The Basics](basics)
+ 

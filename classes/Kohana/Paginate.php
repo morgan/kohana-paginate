@@ -21,7 +21,7 @@ abstract class Kohana_Paginate
 	 * 
 	 * @var		string
 	 */
-	const SORT_DESC = 'DESC';	
+	const SORT_DESC = 'DESC';
 	
 	/**
 	 * Factory pattern
@@ -56,7 +56,8 @@ abstract class Kohana_Paginate
 		}
 		
 		if ( ! $driver)
-			throw new Kohana_Exception('Paginate either expecting driver name or a driver supported object instance.');
+			throw new Kohana_Exception('Paginate either expecting driver name or a driver 
+				supported object instance.');
 		
 		$class = 'Paginate_' . $driver;
 
@@ -93,7 +94,7 @@ abstract class Kohana_Paginate
 	 * @access	protected
 	 * @var		mixed 	NULL|string
 	 */
-	protected $_search_query;	
+	protected $_search_query;
 
 	/**
 	 * Count for request
@@ -125,7 +126,7 @@ abstract class Kohana_Paginate
 	 * @access	protected
 	 * @var		NULL
 	 */
-	protected $_result;	
+	protected $_result;
 	
 	/**
 	 * Initialize
@@ -173,7 +174,7 @@ abstract class Kohana_Paginate
 	 * @access	protected
 	 * @return	int
 	 */
-	abstract protected function _count();	
+	abstract protected function _count();
 	
 	/**
 	 * Count total
@@ -298,7 +299,7 @@ abstract class Kohana_Paginate
 		$this->_columns = $columns;
 		
 		return $this;
-	}	
+	}
 	
 	/**
 	 * Set or get search columns
@@ -315,7 +316,7 @@ abstract class Kohana_Paginate
 		$this->_search_columns = $columns;
 		
 		return $this;
-	}		
+	}
 	
 	/**
 	 * Get result
@@ -326,7 +327,7 @@ abstract class Kohana_Paginate
 	public function result()
 	{
 		return $this->_result;
-	}	
+	}
 	
 	/**
 	 * Execute

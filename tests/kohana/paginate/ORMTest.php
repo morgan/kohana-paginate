@@ -20,8 +20,8 @@ class Kohana_Paginate_ORMTest extends Kohana_Paginate_DatabaseTest
 	 */
 	public function factory()
 	{
-		$orm = ORM::factory('paginate_test');
-			
+		$orm = ORM::factory('Paginate_ORM');
+		
 		return Paginate::factory($orm)
 			->search_columns(array('label'));
 	}
@@ -33,12 +33,12 @@ class Kohana_Paginate_ORMTest extends Kohana_Paginate_DatabaseTest
 	 * @return	void
 	 */
 	public function setUp()
-    {
-    	parent::setUp();
-    	
-        if ( ! class_exists('ORM'))
-        {
+	{
+		parent::setUp();
+
+		if ( ! class_exists('ORM'))
+		{
 			$this->markTestSkipped('ORM module not loaded.');
-        }
-    }
+		}
+	}
 }

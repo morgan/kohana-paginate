@@ -58,4 +58,3 @@ After executing Paginate, access to count and total count becomes available.
 	$count = $paginate->count();
 	
 	$count_total = $paginate->count_total();
-	

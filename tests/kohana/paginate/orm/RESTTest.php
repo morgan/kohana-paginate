@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') OR die('Kohana bootstrap needs to be included before tests run');
 /**
- * Tests Paginate Database driver
+ * Tests Paginate ORM-REST driver
  *
  * @group		paginate
  * @package		Paginate
@@ -9,7 +9,7 @@
  * @copyright	(c) 2011-2012 Micheal Morgan
  * @license		MIT
  */
-class Kohana_Paginate_DispatchTest extends Kohana_Paginate_DatabaseTest
+class Kohana_Paginate_ORM_RESTTest extends Kohana_Paginate_DatabaseTest
 {
 	/**
 	 * Factory
@@ -24,10 +24,11 @@ class Kohana_Paginate_DispatchTest extends Kohana_Paginate_DatabaseTest
 			'attempt_local'	=> TRUE,
 			'extension'		=> 'json'
 		));
-		
-		$dispatch = Dispatch::factory('paginate/test', $connection);
-		
-		return Paginate::factory($dispatch);
+
+		$orm = ORM_REST::factory('Paginate_ORM_REST')
+			->connection($connection);
+
+		return Paginate::factory($orm);
 	}
 	
 	/**
@@ -42,12 +43,12 @@ class Kohana_Paginate_DispatchTest extends Kohana_Paginate_DatabaseTest
 
 		if ( ! class_exists('Dispatch'))
 		{
-			$this->markTestSkipped('Paginate Dispatch test requires Dispatch module.');
+			$this->markTestSkipped('Paginate ORM-REST driver test requires Dispatch module.');
 		}
 		
-		if ( ! class_exists('REST_Collection'))
+		if ( ! class_exists('ORM_REST'))
 		{
-			$this->markTestSkipped('Paginate Dispatch test requires REST module.');
+			$this->markTestSkipped('Paginate ORM-REST driver test requires ORM-REST module.');
 		}
 	}
 }
