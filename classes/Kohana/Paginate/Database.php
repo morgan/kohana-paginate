@@ -151,5 +151,5 @@ class Kohana_Paginate_Database extends Paginate
 	protected function _execute()
 	{
 		return $this->_object->execute();
-	}	
+	}
 }

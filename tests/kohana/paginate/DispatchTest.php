@@ -26,7 +26,7 @@ class Kohana_Paginate_DispatchTest extends Kohana_Paginate_DatabaseTest
 		));
 		
 		$dispatch = Dispatch::factory('paginate/test', $connection);
-			
+		
 		return Paginate::factory($dispatch);
 	}
 	
@@ -37,17 +37,17 @@ class Kohana_Paginate_DispatchTest extends Kohana_Paginate_DatabaseTest
 	 * @return	void
 	 */
 	public function setUp()
-    {
-    	parent::setUp();
+	{
+		parent::setUp();
 
-        if ( ! class_exists('Dispatch'))
-        {
+		if ( ! class_exists('Dispatch'))
+		{
 			$this->markTestSkipped('Paginate Dispatch test requires Dispatch module.');
-        }
-        
-        if ( ! class_exists('REST_Collection'))
-        {
-        	$this->markTestSkipped('Paginate Dispatch test requires REST module.');
-        }        
-    }
+		}
+		
+		if ( ! class_exists('REST_Collection'))
+		{
+			$this->markTestSkipped('Paginate Dispatch test requires REST module.');
+		}
+	}
 }
