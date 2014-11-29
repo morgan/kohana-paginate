@@ -113,6 +113,14 @@ abstract class Kohana_Paginate
 	protected $_count_total = 0;
 	
 	/**
+	 * Total pages
+	 *
+	 * @access	protected
+	 * @var		int
+	 */
+	protected $_count_pages = 0;
+	
+	/**
 	 * Total search count
 	 * 
 	 * @access	protected
@@ -127,6 +135,14 @@ abstract class Kohana_Paginate
 	 * @var		NULL
 	 */
 	protected $_result;
+	
+	/**
+	 * Length
+	 *
+	 * @access	protected
+	 * @var		NULL
+	 */
+	protected $_length;
 	
 	/**
 	 * Initialize
@@ -210,6 +226,8 @@ abstract class Kohana_Paginate
 	 */
 	public function limit($start, $length)
 	{
+		$this->_length = $length;
+		
 		$this->_limit($start, $length);
 		
 		return $this;
@@ -348,6 +366,8 @@ abstract class Kohana_Paginate
 		$this->_count = $this->_count();
 		
 		$this->_count_total = $this->_count_total();
+		
+		$this->_count_pages = ceil($this->_count_total / $this->_length);
 
 		if ($this->_search_query !== NULL)
 		{
