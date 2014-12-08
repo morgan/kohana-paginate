@@ -61,7 +61,7 @@ class Kohana_Paginate_Database extends Paginate
 	 */
 	protected function _sort($column, $direction)
 	{
-		$this->_object->order_by($column, mysql_real_escape_string($direction));
+		$this->_object->order_by($column, $direction);
 	}
 	
 	/**
@@ -79,7 +79,7 @@ class Kohana_Paginate_Database extends Paginate
 
 		if (count($columns) > 0)
 		{
-			$query = '%' . mysql_real_escape_string($query) . '%';
+			$query = '%' . Database::instance()->escape($query) . '%';
 			
 			$this->_object->where_open();
 			$this->_object_search_clone->where_open();
