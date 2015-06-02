@@ -391,9 +391,7 @@ abstract class Kohana_Paginate
 	public function execute()
 	{
 		if ($this->_search_query !== NULL)
-		{
 			$this->_search($this->_search_query);
-		}
 
 		$this->_result = $this->_execute();
 		
