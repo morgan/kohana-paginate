@@ -119,6 +119,22 @@ abstract class Kohana_Paginate
 	 * @var		int
 	 */
 	protected $_count_search_total = 0;
+	
+	/**
+	 * Total items per page
+	 *
+	 * @access	protected
+	 * @var		int
+	 */
+	protected $_items_per_page = 0;
+
+	/**
+	 * Total pages
+	 *
+	 * @access	protected
+	 * @var		int
+	 */
+	protected $_count_pages = 0;
 
 	/**
 	 * Result
@@ -216,6 +232,31 @@ abstract class Kohana_Paginate
 	}
 	
 	/**
+	 * Set page number
+	 *
+	 * @access	public
+	 * @param	integer		Page number
+	 * @param	integer		Total items per page
+	 * @return	$this
+	 */
+	public function page($page, $itemsperpage)
+	{
+		if ( ! is_numeric($itemsperpage))
+			$itemsperpage = 0;
+
+		$this->_items_per_page = $itemsperpage;
+
+		if ( ! is_numeric($page))
+			$page = 0;
+
+		$offset = ($page - 1) * $itemsperpage;
+
+		$this->_limit($offset, $itemsperpage);
+
+		return $this;
+	}
+	
+	/**
 	 * Set sort order
 	 * 
 	 * @access	public
@@ -283,6 +324,17 @@ abstract class Kohana_Paginate
 	{
 		return (int) $this->_count_search_total;
 	}
+	
+	/**
+	 * Get total pages
+	 *
+	 * @access	public
+	 * @return	int
+	 */
+	public function count_pages()
+	{
+		return (int) $this->_count_pages;
+	}
 
 	/**
 	 * Set or get columns
@@ -339,15 +391,18 @@ abstract class Kohana_Paginate
 	public function execute()
 	{
 		if ($this->_search_query !== NULL)
-		{
 			$this->_search($this->_search_query);
-		}
 
 		$this->_result = $this->_execute();
 		
 		$this->_count = $this->_count();
 		
 		$this->_count_total = $this->_count_total();
+		
+		if ($this->_items_per_page > 0)
+			$this->_count_pages = ceil($this->_count_total / $this->_items_per_page);
+		else
+			$this->_count_pages = 0;
 
 		if ($this->_search_query !== NULL)
 		{
