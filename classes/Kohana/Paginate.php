@@ -399,7 +399,10 @@ abstract class Kohana_Paginate
 		
 		$this->_count_total = $this->_count_total();
 		
-		$this->_count_pages = ceil($this->_count_total / $this->_items_per_page);
+		if ($this->_items_per_page > 0)
+			$this->_count_pages = ceil($this->_count_total / $this->_items_per_page);
+		else
+			$this->_count_pages = 0;
 
 		if ($this->_search_query !== NULL)
 		{
