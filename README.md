@@ -1,3 +1,7 @@
+:warning: **Notice**: The Kohana Framework announced official retirement on 07/01/2017. Therefore, this repository is no longer maintained.
+
+----
+
 # Paginate Module
 
 Paginate abstraction supporting:
@@ -13,7 +17,7 @@ Be sure to check out wrappers for:
 
 ## Getting Started
 
-Recommend starting out with Paginate documentation using the User Guide module or available online at http://dev.morgan.ly/kohana/v3.3/guide/paginate/.
+Recommend starting out with Paginate documentation using the User Guide module.
 
 ## Learning & References
 
